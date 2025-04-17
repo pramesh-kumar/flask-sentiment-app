@@ -6,7 +6,9 @@ WORKDIR /app
 
 # Copy the requirements file and install the dependencies.
 COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --default-timeout=100 -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+
+
 
 # Copy all project files into the container.
 COPY . .
